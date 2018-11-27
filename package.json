@@ -1,0 +1,44 @@
+{
+  "name": "@nutshelllab/aws-appolo-tools",
+  "version": "0.0.1",
+  "description": "Initialize graphQl Client and Sign request for IAM authentication",
+  "main": "lib/aws-appolo-tools.js",
+  "scripts": {
+    "build": "webpack --config webpack.config.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/nutshelllab/aws-appolo-tools.git"
+  },
+  "keywords": [
+    "graphql",
+    "sign",
+    "aws"
+  ],
+  "author": "Nutshell",
+  "license": "GNU GENERAL PUBLIC LICENSE Version 3",
+  "bugs": {
+    "url": "https://github.com/nutshelllab/aws-appolo-tools/issues"
+  },
+  "homepage": "https://github.com/nutshelllab/aws-appolo-tools#readme",
+  "dependencies": {
+    "apollo-cache-inmemory": "^1.3.11",
+    "apollo-client": "^2.4.7",
+    "apollo-link": "^1.2.4",
+    "apollo-link-http": "^1.5.7",
+    "aws-sdk": "^2.363.0",
+    "aws4": "^1.8.0",
+    "graphql": "^14.0.2",
+    "node-fetch": "^2.3.0",
+    "url": "^0.11.0"
+  },
+  "devDependencies": {
+    "babel-loader": "^7.1.4",
+    "babel-plugin-transform-object-rest-spread": "^6.26.0",
+    "babel-polyfill": "^6.26.0",
+    "babel-preset-env": "^1.7.0",
+    "webpack": "^4.8.2",
+    "webpack-cli": "^2.1.3",
+    "webpack-node-externals": "^1.7.2"
+  }
+}
