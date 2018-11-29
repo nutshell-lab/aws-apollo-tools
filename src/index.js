@@ -1,5 +1,6 @@
 export { default as graphqlHttpRequest } from './http-request'
 export { default as graphqlLambdaRequest } from './lambda-request'
 export { default as createLambdaLink } from './lambda-link'
+export { default as createHeaderLink } from './header-link'
 export { default as hmacfetch } from './aws4-signer'
 export { default as formatError } from './format-error'
