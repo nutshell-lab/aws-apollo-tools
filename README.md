@@ -66,7 +66,7 @@ const test = await graphqlLambdaRequest({
 #### Options
 
 |name|required|type|info|
-|---|---|---|---|---|
+|---|---|---|---|
 |lambdaName|true|string|The lambda endpoint must provide an apollo server|
 |region|true|string|   |
 |request|true|string|It must be a GraphQL query [graphql-tag](https://github.com/apollographql/graphql-tag#readme)|
@@ -103,7 +103,7 @@ const test = await graphqlHttpRequest({
 #### Options
 
 |name|required|type|info|
-|---|---|---|---|---|
+|---|---|---|---|
 |uri|true|string|The http endpoint must provide an apollo server|
 |region|true|string|   |
 |request|true|string|It must be a GraphQL query [graphql-tag](https://github.com/apollographql/graphql-tag#readme)|
