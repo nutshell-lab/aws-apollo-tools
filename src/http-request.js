@@ -19,5 +19,5 @@ export default ({
     },
     fetch: signed ? hmacfetch : fetch
   })
-  return graphqlRequest({ name: uri, link, request, variables })
+  return graphqlRequest({ link, request, variables })
 }

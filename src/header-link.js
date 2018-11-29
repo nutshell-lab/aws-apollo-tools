@@ -1,6 +1,6 @@
 import { setContext } from 'apollo-link-context'
 
-export default headers =>
+export default link =>
   setContext((_request, context) => {
     console.log('context', context)
     if (!context.graphqlContext) return {}
@@ -8,7 +8,7 @@ export default headers =>
     return {
       headers: {
         ...context.graphqlContext.headers,
-        ...headers
+        ...context.headers
       }
     }
-  })
+  }).concat(link)
