@@ -26,11 +26,16 @@ export const graphqlRequest = async ({ link, request, variables = {} }) => {
     cache
   })
   if (!request.definitions)
-    throw new Error(
-      `[Apollo Tools] - GraphQL request does not contain any operation`
-    )
+    throw new Error(`GraphQL request does not contain any operation`)
   const { operation = 'query' } = request.definitions[0] || {}
-  const { data } = await run(operation)(graphqlClient, request, variables)
+  const { data } = await run(operation)(
+    graphqlClient,
+    request,
+    variables
+  ).catch(error => {
+    error.message = error.message.replace('GraphQL error: ', '')
+    throw error
+  })
   const key = Object.keys(data)[0]
   return data[key]
 }
