@@ -1,6 +1,7 @@
 const path = require('path')
 const nodeExternals = require('webpack-node-externals')
-const libraryName = 'graph-client'
+
+const libraryName = 'aws-apollo-tools'
 const outputfile = libraryName + '.js'
 
 module.exports = {
@@ -17,11 +18,17 @@ module.exports = {
   },
   module: {
     rules: [
-      { 
+      {
         test: /\.js$/,
-        include: path.resolve(__dirname, 'src'),
-        exclude: /node_modules/,
-        loader: 'babel-loader'
+        use: [
+          'imports-loader',
+          {
+            loader: 'babel-loader',
+            options: {
+              babelrc: true
+            }
+          }
+        ]
       }
     ]
   }
