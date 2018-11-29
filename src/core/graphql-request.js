@@ -3,7 +3,7 @@ import ApolloClient from 'apollo-client'
 
 const cache = new InMemoryCache()
 
-const operate = (graphqlClient, operation) => (request, variables) =>
+const run = operation => (graphqlClient, request, variables) =>
   operation === 'query'
     ? query(graphqlClient, request, variables)
     : mutate(graphqlClient, request, variables)
@@ -20,12 +20,7 @@ const mutate = (graphqlClient, request, variables) =>
     fetchPolicy: 'no-cache'
   })
 
-export const graphqlRequest = async ({
-  name,
-  link,
-  request,
-  variables = {}
-}) => {
+export const graphqlRequest = async ({ link, request, variables = {} }) => {
   const graphqlClient = new ApolloClient({
     link,
     cache
@@ -35,12 +30,7 @@ export const graphqlRequest = async ({
       `[Apollo Tools] - GraphQL request does not contain any operation`
     )
   const { operation = 'query' } = request.definitions[0] || {}
-  const { data } = await operate(graphqlClient, operation)(
-    request,
-    variables
-  ).catch(error => {
-    throw new Error(`(from ${name}) - ${error.message}`)
-  })
+  const { data } = await run(operation)(graphqlClient, request, variables)
   const key = Object.keys(data)[0]
   return data[key]
 }
