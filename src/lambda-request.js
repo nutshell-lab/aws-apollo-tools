@@ -1,5 +1,4 @@
 import { graphqlRequest } from './core/graphql-request'
-import setHeaders from './header-link'
 import createLambdaLink from './lambda-link'
 
 export default ({ lambdaName, region, request, variables, headers = {} }) => {
@@ -8,5 +7,5 @@ export default ({ lambdaName, region, request, variables, headers = {} }) => {
     region,
     headers
   })
-  return graphqlRequest({ link: setHeaders(link), request, variables })
+  return graphqlRequest({ link, request, variables })
 }
