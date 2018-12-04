@@ -1,6 +1,6 @@
 {
   "name": "@nutshelllab/aws-apollo-tools",
-  "version": "0.0.6",
+  "version": "1.0.0",
   "description": "Aws apollo",
   "main": "lib/aws-apollo-tools.js",
   "scripts": {
@@ -29,24 +29,27 @@
   },
   "homepage": "https://github.com/nutshell-lab/aws-apollo-tools#readme",
   "dependencies": {
-    "@babel/register": "^7.0.0",
     "apollo-cache-inmemory": "^1.3.11",
     "apollo-client": "^2.4.7",
     "apollo-link": "^1.2.4",
+    "apollo-link-context": "^1.0.10",
     "apollo-link-http": "^1.5.7",
+    "apollo-server-lambda": "^2.2.6",
     "aws-sdk": "^2.363.0",
     "aws4": "^1.8.0",
-    "babel-plugin-module-resolver": "^3.1.1",
     "graphql": "^14.0.2",
     "node-fetch": "^2.3.0",
+    "node-localstorage": "^1.3.1",
     "url": "^0.11.0"
   },
   "devDependencies": {
     "@babel/core": "^7.1.6",
     "@babel/plugin-proposal-object-rest-spread": "^7.0.0",
     "@babel/preset-env": "^7.1.6",
+    "@babel/register": "^7.0.0",
     "ava": "1.0.0-beta.4",
     "babel-loader": "^8.0.4",
+    "babel-plugin-module-resolver": "^3.1.1",
     "eslint": "^5.9.0",
     "eslint-config-prettier": "^2.9.0",
     "eslint-config-prettier-standard": "^1.0.1",
