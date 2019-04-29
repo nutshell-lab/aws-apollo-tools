@@ -1,19 +1,17 @@
-# Aws Apollo Tools
+# aws-apollo-tools [![Node version](https://img.shields.io/badge/nodejs-8.10.0-blue.svg)](https://nodejs.org/en/blog/release/v8.10.0/)
 
-[![Node version](https://img.shields.io/badge/nodejs-8.10.0-blue.svg)](https://nodejs.org/en/blog/release/v8.10.0/)
-
-
-## Table of Contents
-
-* [Prerequisites](#prerequisites)
-* [Getting Started](#getting-started)
-* [Usage](#usage)
-  * [LambdaRequest](#lambdarequest)
-  * [HttpRequest](#httprequest)
-  
+> Just make GraphQL requests through AWS LambdaInvoke or HTTP
 
 
-## Prerequisites
+## Install
+
+```
+$ yarn add @nutshelllab/aws-apollo-tools
+```
+
+## Usage
+
+### Prerequisites
 
 in `serverless.yml`
 ```yml
@@ -24,24 +22,18 @@ provider:
     SLS_STAGE: ${self:provider.stage} 
   iamRoleStatements:
     - Effect: Allow
-      Action:
+      Action: # Set permissions for specific Lambdas
         - execute-api:*
       Resource: '*'
 ...
 ```
 
-## Getting Started
-
-* Run `yarn add @nutshelllab/aws-apollo-tools`
-* `import * from '@nutshelllab/aws-apollo-tools'`
-
-## Usage
-
 ### LambdaRequest
 
-`import graphqlLambdaRequest from '@nutshelllab/aws-apollo-tools/lambda-request'`
-
 ```js
+import gql from 'graphql-tag'
+import graphqlLambdaRequest from '@nutshelllab/aws-apollo-tools/lambda-request'
+
 const request = gql`
   query getItem($id: ID!) {
     getItem(id: $id) {
@@ -75,9 +67,10 @@ const test = await graphqlLambdaRequest({
 
 ### HttpRequest
 
-`import graphqlHttpRequest from '@nutshelllab/aws-apollo-tools/http-request'`
-
 ```js
+import gql from 'graphql-tag'
+import graphqlHttpRequest from '@nutshelllab/aws-apollo-tools/http-request'
+
 const request = gql`
   query getItem($id: ID!) {
     getItem(id: $id) {
