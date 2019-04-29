@@ -103,3 +103,8 @@ const test = await graphqlHttpRequest({
 |signed|false|bool|Setting to `true` enable aws signature v4, be sure that your http endpoint as `authorizer: aws_iam`|
 |variables|false|object|   |
 |headers|false|object|   |
+
+
+## License
+
+MIT © [Nutshell](https://nutshell-lab.com)
