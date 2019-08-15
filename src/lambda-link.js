@@ -13,11 +13,13 @@ const parseBody = Payload => {
   const { body } = JSON.parse(Payload)
   const parsedBody = JSON.parse(body)
 
-  if (parsedBody.errors)
+  if (parsedBody.errors) {
+    console.log(parsedBody.errors[0])
     throw new ApolloError(
       parsedBody.errors[0].message,
       parsedBody.errors[0].extensions.code
     )
+  }
   return parsedBody
 }
 

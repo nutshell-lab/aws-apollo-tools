@@ -1,6 +1,6 @@
 {
   "name": "@nutshelllab/aws-apollo-tools",
-  "version": "1.0.10",
+  "version": "1.0.11",
   "description": "Aws apollo",
   "main": "lib/aws-apollo-tools.js",
   "scripts": {
