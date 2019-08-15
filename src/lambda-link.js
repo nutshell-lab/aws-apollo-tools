@@ -10,9 +10,15 @@ const makeFullHeaders = (headers, { headers: contextHeaders }) => {
   }
 }
 const parseBody = Payload => {
-  const { body, ...payload } = JSON.parse(Payload)
-  if (payload.errorMessage) throw new ApolloError(payload.errorMessage, 500)
-  return JSON.parse(body)
+  const { body } = JSON.parse(Payload)
+  const parsedBody = JSON.parse(body)
+
+  if (parsedBody.errors)
+    throw new ApolloError(
+      parsedBody.errors[0].message,
+      parsedBody.errors[0].extensions.code
+    )
+  return parsedBody
 }
 
 export default ({ lambdaName, region, headers, ...options }) => {
